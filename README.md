@@ -7,7 +7,7 @@ untuk membuka kodingan tersebut bisa dibuka menggunakan netbeans atau microsoft 
 
 Screen Shoot Aplikasi :
 Halaman Dashboard 
-![image.png]( {https://raw.githubusercontent.com/Rasyahodhe/Project_Tugas_Akhir_2022/main/Screenshoot/Hasil%20Analisis.jpg} )
+![image.png]( https://raw.githubusercontent.com/Rasyahodhe/Project_Tugas_Akhir_2022/main/Screenshoot/Hasil%20Analisis.jpg )
 
 
 
