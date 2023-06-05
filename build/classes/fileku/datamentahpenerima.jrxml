@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT tb_penerima.id_penerima, tb_penerima.Nama_penerima, 
+                    tb_pekerjaan.jenis_pekerjaan, 
+                    tb_sbtinggal.jenis_sbtinggal, 
+                    tb_sltinggal.jenis_sltinggal, 
+                    tb_sumper.jenis_sumper, 
+                    tb_sumair.jenis_sumair, 
+                    tb_energimasak.jenis_energi, 
+                    tb_stm.jenis_stm,
+                    tb_jumt.jenis_jumt, 
+                    tb_jenjangpendidikan.jenis_pendidikan, 
+                    tb_terbansos.jenis_bansos,
+                    tb_penerima.rt_rw FROM 
+                    ((((((((((tb_penerima LEFT JOIN tb_pekerjaan ON tb_penerima.id_pekerjaan = tb_pekerjaan.id_pekerjaan)
+                    LEFT JOIN tb_sbtinggal ON tb_penerima.id_sbtinggal = tb_sbtinggal.id_sbtinggal)
+                    LEFT JOIN tb_sltinggal ON tb_penerima.id_sltinggal = tb_sltinggal.id_sltinggal)
+                    LEFT JOIN tb_sumper ON tb_penerima.id_sumper = tb_sumper.id_sumper) 
+                    LEFT JOIN tb_sumair ON tb_penerima.id_sumair = tb_sumair.id_sumair)
+                    LEFT JOIN tb_energimasak ON tb_penerima.id_energimasak = tb_energimasak.id_energimasak)
+                    LEFT JOIN tb_stm ON tb_penerima.id_stm = tb_stm.id_stm)
+                    LEFT JOIN tb_jumt ON tb_penerima.id_jumtang = tb_jumt.id_jumt)
+                    LEFT JOIN tb_jenjangpendidikan ON tb_penerima.id_jenjangpendidikan = tb_jenjangpendidikan.id_jenpend)
+                    LEFT JOIN tb_terbansos ON tb_penerima.id_bansoslain = tb_terbansos.id_bansos)]]>
+	</queryString>
+	<field name="id_penerima" class="java.lang.Integer"/>
+	<field name="Nama_penerima" class="java.lang.String"/>
+	<field name="jenis_pekerjaan" class="java.lang.String"/>
+	<field name="jenis_sbtinggal" class="java.lang.String"/>
+	<field name="jenis_sltinggal" class="java.lang.String"/>
+	<field name="jenis_sumper" class="java.lang.String"/>
+	<field name="jenis_sumair" class="java.lang.String"/>
+	<field name="jenis_energi" class="java.lang.String"/>
+	<field name="jenis_stm" class="java.lang.String"/>
+	<field name="jenis_jumt" class="java.lang.String"/>
+	<field name="jenis_pendidikan" class="java.lang.String"/>
+	<field name="jenis_bansos" class="java.lang.String"/>
+	<field name="rt_rw" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="133" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="227" y="0" width="383" height="62"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="36" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Data Masyarakat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="227" y="62" width="383" height="22"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="12" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Jln. Raha-Masara, Kelurahan Dana, Kecamatan Watopute]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="227" y="94" width="383" height="32"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<image>
+				<reportElement x="678" y="12" width="84" height="100"/>
+				<imageExpression><![CDATA["F:\\Skripsi\\application\\RMIconnection\\src\\fileku\\Lambang_Kabupaten_Muna.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="49" y="0" width="130" height="126"/>
+				<imageExpression><![CDATA["F:\\Skripsi\\application\\RMIconnection\\src\\fileku\\bantu.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="57" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="52" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="2" y="0" width="31" height="52" forecolor="#736343"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="35" y="0" width="60" height="52" forecolor="#736343"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[NAMA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="97" y="0" width="66" height="52" forecolor="#736343"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[PEKERJAAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="164" y="0" width="60" height="52" forecolor="#736343"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[STATUS 
+BANGUNAN
+TINGGAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="225" y="1" width="60" height="52" forecolor="#736343"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[STATUS
+LAHAN
+TINGGAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="287" y="0" width="60" height="52" forecolor="#736343"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[SUMBER 
+PENERANGAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="348" y="0" width="60" height="52" forecolor="#736343"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[SUMBER 
+AIR 
+MINUM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="409" y="0" width="60" height="52" forecolor="#736343"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[SUMBER 
+ENERGI
+MASAK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="470" y="0" width="73" height="52" forecolor="#736343"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[STATUS 
+MASYARAKAT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="544" y="0" width="66" height="52" forecolor="#736343"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[JUMLAH 
+TANGGUNGAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="611" y="0" width="62" height="52" forecolor="#736343"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[JENJANG
+PENDIDIKAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="674" y="0" width="64" height="52" forecolor="#736343"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[TERKAIT
+BANSOS
+LAIN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="739" y="0" width="61" height="52" forecolor="#736343"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[RT/RW]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="1" y="0" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="1" y="1" width="1" height="51"/>
+			</line>
+			<line>
+				<reportElement x="801" y="0" width="1" height="51"/>
+			</line>
+			<line>
+				<reportElement x="33" y="1" width="1" height="51"/>
+			</line>
+			<line>
+				<reportElement x="95" y="1" width="1" height="51"/>
+			</line>
+			<line>
+				<reportElement x="163" y="0" width="1" height="51"/>
+			</line>
+			<line>
+				<reportElement x="224" y="1" width="1" height="51"/>
+			</line>
+			<line>
+				<reportElement x="285" y="1" width="1" height="51"/>
+			</line>
+			<line>
+				<reportElement x="347" y="1" width="1" height="51"/>
+			</line>
+			<line>
+				<reportElement x="408" y="1" width="1" height="51"/>
+			</line>
+			<line>
+				<reportElement x="469" y="1" width="1" height="51"/>
+			</line>
+			<line>
+				<reportElement x="543" y="1" width="1" height="51"/>
+			</line>
+			<line>
+				<reportElement x="610" y="1" width="1" height="51"/>
+			</line>
+			<line>
+				<reportElement x="673" y="1" width="1" height="51"/>
+			</line>
+			<line>
+				<reportElement x="738" y="1" width="1" height="51"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="-2" y="0" width="802" height="15"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="2" y="0" width="31" height="15"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{id_penerima}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="35" y="0" width="60" height="15"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Nama_penerima}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="97" y="0" width="68" height="15"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{jenis_pekerjaan}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="166" y="0" width="60" height="15"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{jenis_sbtinggal}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="227" y="0" width="60" height="15"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{jenis_sltinggal}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="288" y="0" width="61" height="15"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{jenis_sumper}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="350" y="0" width="60" height="15"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{jenis_sumair}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="411" y="0" width="60" height="15"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{jenis_energi}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="472" y="0" width="73" height="15"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{jenis_stm}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="546" y="0" width="66" height="15"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{jenis_jumt}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="613" y="0" width="62" height="15"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{jenis_pendidikan}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="676" y="0" width="64" height="15"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{jenis_bansos}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="741" y="0" width="60" height="15"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{rt_rw}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="1" y="0" width="1" height="15"/>
+				</line>
+				<line>
+					<reportElement x="801" y="0" width="1" height="15"/>
+				</line>
+				<line>
+					<reportElement x="34" y="0" width="1" height="15"/>
+				</line>
+				<line>
+					<reportElement x="95" y="0" width="1" height="15"/>
+				</line>
+				<line>
+					<reportElement x="165" y="0" width="1" height="15"/>
+				</line>
+				<line>
+					<reportElement x="226" y="0" width="1" height="15"/>
+				</line>
+				<line>
+					<reportElement x="287" y="0" width="1" height="15"/>
+				</line>
+				<line>
+					<reportElement x="349" y="0" width="1" height="15"/>
+				</line>
+				<line>
+					<reportElement x="410" y="0" width="1" height="15"/>
+				</line>
+				<line>
+					<reportElement x="471" y="0" width="1" height="15"/>
+				</line>
+				<line>
+					<reportElement x="545" y="0" width="1" height="15"/>
+				</line>
+				<line>
+					<reportElement x="612" y="0" width="1" height="15"/>
+				</line>
+				<line>
+					<reportElement x="675" y="0" width="1" height="15"/>
+				</line>
+				<line>
+					<reportElement x="740" y="0" width="1" height="15"/>
+				</line>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="703" y="1" width="80" height="20" forecolor="#736343"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
