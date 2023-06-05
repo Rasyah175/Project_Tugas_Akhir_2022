@@ -8,25 +8,25 @@ untuk membuka kodingan tersebut bisa dibuka menggunakan netbeans atau microsoft 
 Screen Shoot Aplikasi :
 
 
-Halaman Dashboard 
+# Halaman Dashboard 
 ![image.png]( https://raw.githubusercontent.com/Rasyahodhe/Project_Tugas_Akhir_2022/main/Screenshoot/Hasil%20Analisis.jpg )
 
 
 
-Halaman Input Data
+# Halaman Input Data
 ![image.png]( https://raw.githubusercontent.com/Rasyahodhe/Project_Tugas_Akhir_2022/main/Screenshoot/Input%20Data.jpg )
 
 
 
 
-Halaman Analisis Data
+# Halaman Analisis Data
 ![image.png]( https://raw.githubusercontent.com/Rasyahodhe/Project_Tugas_Akhir_2022/main/Screenshoot/Analisis%20Data.jpg)
 
 
 
 
 
-Halaman Hasil Analisis
+# Halaman Hasil Analisis
 ![image.png]( https://raw.githubusercontent.com/Rasyahodhe/Project_Tugas_Akhir_2022/main/Screenshoot/Hasil%20Analisis.jpg )
 
 
